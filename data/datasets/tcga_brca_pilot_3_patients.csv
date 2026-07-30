@@ -1,0 +1,4 @@
+patient_id,age_at_diagnosis_years,tumor_stage,tumor_grade,primary_diagnosis,vital_status,days_to_death,days_to_last_follow_up,total_mutation_count,TP53_tpm,TP53_mutated,BRCA1_tpm,BRCA1_mutated,BRCA2_tpm,BRCA2_mutated,ERBB2_tpm,ERBB2_mutated,PIK3CA_tpm,PIK3CA_mutated,PTEN_tpm,PTEN_mutated,RB1_tpm,RB1_mutated,ESR1_tpm,ESR1_mutated,PGR_tpm,PGR_mutated,EGFR_tpm,EGFR_mutated,CD274_tpm,CD274_mutated,MYC_tpm,MYC_mutated
+TCGA-3C-AALJ,62.55,,,"Infiltrating duct carcinoma, NOS",Alive,,1474.0,32,37.647,0,3.7328,0,3.1564,0,162.6673,0,3.2608,0,24.8186,0,20.7573,0,88.2145,0,5.3124,0,2.4771,0,1.7519,0,35.6558,0
+TCGA-3C-AALK,52.22,,,"Infiltrating duct carcinoma, NOS",Alive,,1448.0,52,41.2468,0,2.8124,0,1.8815,0,550.8894,0,4.2951,1,31.5084,0,26.6227,0,30.2662,0,24.9864,0,11.0962,0,2.3772,0,40.9461,0
+TCGA-4H-AAAK,50.3,,,"Lobular carcinoma, NOS",Alive,,348.0,21,52.7249,0,8.5067,0,2.9382,0,237.3369,1,6.8426,0,36.62,0,32.1695,0,84.1604,0,60.8592,0,7.8284,0,2.7268,0,150.5384,0

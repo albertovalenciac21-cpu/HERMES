@@ -1,0 +1,275 @@
+{
+  "project": "TCGA-BRCA",
+  "preprocessing_version": "1.0",
+  "source_dataset_path": "data\\datasets\\tcga_brca_cohort_250_patients.csv",
+  "processed_dataset_path": "data\\processed\\tcga_brca_cohort_250_patients_ml_ready.csv",
+  "row_count": 250,
+  "selected_genes": [
+    "TP53",
+    "BRCA1",
+    "BRCA2",
+    "ERBB2",
+    "PIK3CA",
+    "PTEN",
+    "RB1",
+    "ESR1",
+    "PGR",
+    "EGFR",
+    "CD274",
+    "MYC"
+  ],
+  "identifier_column": "patient_id",
+  "outcome_reference_columns": [
+    "vital_status",
+    "days_to_death",
+    "days_to_last_follow_up"
+  ],
+  "model_feature_count": 45,
+  "model_feature_names": [
+    "age_at_diagnosis_years__scaled",
+    "total_mutation_count__scaled",
+    "TP53_tpm__scaled",
+    "BRCA1_tpm__scaled",
+    "BRCA2_tpm__scaled",
+    "ERBB2_tpm__scaled",
+    "PIK3CA_tpm__scaled",
+    "PTEN_tpm__scaled",
+    "RB1_tpm__scaled",
+    "ESR1_tpm__scaled",
+    "PGR_tpm__scaled",
+    "EGFR_tpm__scaled",
+    "CD274_tpm__scaled",
+    "MYC_tpm__scaled",
+    "tumor_stage__missing",
+    "tumor_grade__missing",
+    "primary_diagnosis__adenocarcinoma_nos",
+    "primary_diagnosis__adenoid_cystic_carcinoma",
+    "primary_diagnosis__apocrine_adenocarcinoma",
+    "primary_diagnosis__basal_cell_carcinoma_nos",
+    "primary_diagnosis__carcinoma_nos",
+    "primary_diagnosis__infiltrating_duct_and_lobular_carcinoma",
+    "primary_diagnosis__infiltrating_duct_carcinoma_nos",
+    "primary_diagnosis__infiltrating_duct_mixed_with_other_types_of_carcinoma",
+    "primary_diagnosis__infiltrating_lobular_mixed_with_other_types_of_carcinoma",
+    "primary_diagnosis__invasive_micropapillary_carcinoma",
+    "primary_diagnosis__large_cell_neuroendocrine_carcinoma",
+    "primary_diagnosis__lobular_carcinoma_in_situ_nos",
+    "primary_diagnosis__lobular_carcinoma_nos",
+    "primary_diagnosis__metaplastic_carcinoma_nos",
+    "primary_diagnosis__mucinous_adenocarcinoma",
+    "primary_diagnosis__not_reported",
+    "primary_diagnosis__paget_disease_and_infiltrating_duct_carcinoma_of_breast",
+    "TP53_mutated",
+    "BRCA1_mutated",
+    "BRCA2_mutated",
+    "ERBB2_mutated",
+    "PIK3CA_mutated",
+    "PTEN_mutated",
+    "RB1_mutated",
+    "ESR1_mutated",
+    "PGR_mutated",
+    "EGFR_mutated",
+    "CD274_mutated",
+    "MYC_mutated"
+  ],
+  "feature_groups": {
+    "numeric_scaled": [
+      "age_at_diagnosis_years__scaled",
+      "total_mutation_count__scaled",
+      "TP53_tpm__scaled",
+      "BRCA1_tpm__scaled",
+      "BRCA2_tpm__scaled",
+      "ERBB2_tpm__scaled",
+      "PIK3CA_tpm__scaled",
+      "PTEN_tpm__scaled",
+      "RB1_tpm__scaled",
+      "ESR1_tpm__scaled",
+      "PGR_tpm__scaled",
+      "EGFR_tpm__scaled",
+      "CD274_tpm__scaled",
+      "MYC_tpm__scaled"
+    ],
+    "categorical_one_hot": [
+      "tumor_stage__missing",
+      "tumor_grade__missing",
+      "primary_diagnosis__adenocarcinoma_nos",
+      "primary_diagnosis__adenoid_cystic_carcinoma",
+      "primary_diagnosis__apocrine_adenocarcinoma",
+      "primary_diagnosis__basal_cell_carcinoma_nos",
+      "primary_diagnosis__carcinoma_nos",
+      "primary_diagnosis__infiltrating_duct_and_lobular_carcinoma",
+      "primary_diagnosis__infiltrating_duct_carcinoma_nos",
+      "primary_diagnosis__infiltrating_duct_mixed_with_other_types_of_carcinoma",
+      "primary_diagnosis__infiltrating_lobular_mixed_with_other_types_of_carcinoma",
+      "primary_diagnosis__invasive_micropapillary_carcinoma",
+      "primary_diagnosis__large_cell_neuroendocrine_carcinoma",
+      "primary_diagnosis__lobular_carcinoma_in_situ_nos",
+      "primary_diagnosis__lobular_carcinoma_nos",
+      "primary_diagnosis__metaplastic_carcinoma_nos",
+      "primary_diagnosis__mucinous_adenocarcinoma",
+      "primary_diagnosis__not_reported",
+      "primary_diagnosis__paget_disease_and_infiltrating_duct_carcinoma_of_breast"
+    ],
+    "binary_mutations": [
+      "TP53_mutated",
+      "BRCA1_mutated",
+      "BRCA2_mutated",
+      "ERBB2_mutated",
+      "PIK3CA_mutated",
+      "PTEN_mutated",
+      "RB1_mutated",
+      "ESR1_mutated",
+      "PGR_mutated",
+      "EGFR_mutated",
+      "CD274_mutated",
+      "MYC_mutated"
+    ]
+  },
+  "numeric_parameters": {
+    "age_at_diagnosis_years": {
+      "median_imputation_value": 62.37,
+      "log1p_transformed": false,
+      "mean_after_transformation": 61.04996,
+      "standard_deviation_after_transformation": 12.574459368036464,
+      "missing_value_count": 11
+    },
+    "total_mutation_count": {
+      "median_imputation_value": 47.0,
+      "log1p_transformed": true,
+      "mean_after_transformation": 3.99179992049279,
+      "standard_deviation_after_transformation": 0.9332364217384491,
+      "missing_value_count": 0
+    },
+    "TP53_tpm": {
+      "median_imputation_value": 48.5462,
+      "log1p_transformed": true,
+      "mean_after_transformation": 3.7952814563710096,
+      "standard_deviation_after_transformation": 0.6781624311056966,
+      "missing_value_count": 0
+    },
+    "BRCA1_tpm": {
+      "median_imputation_value": 6.7669,
+      "log1p_transformed": true,
+      "mean_after_transformation": 2.1170916612176467,
+      "standard_deviation_after_transformation": 0.6300358787664556,
+      "missing_value_count": 0
+    },
+    "BRCA2_tpm": {
+      "median_imputation_value": 2.621,
+      "log1p_transformed": true,
+      "mean_after_transformation": 1.36493256043091,
+      "standard_deviation_after_transformation": 0.5120729033460463,
+      "missing_value_count": 0
+    },
+    "ERBB2_tpm": {
+      "median_imputation_value": 131.78555,
+      "log1p_transformed": true,
+      "mean_after_transformation": 4.934110641477077,
+      "standard_deviation_after_transformation": 1.0774019338824044,
+      "missing_value_count": 0
+    },
+    "PIK3CA_tpm": {
+      "median_imputation_value": 8.17745,
+      "log1p_transformed": true,
+      "mean_after_transformation": 2.1919093353108767,
+      "standard_deviation_after_transformation": 0.4802042951148814,
+      "missing_value_count": 0
+    },
+    "PTEN_tpm": {
+      "median_imputation_value": 37.027,
+      "log1p_transformed": true,
+      "mean_after_transformation": 3.5328960558225684,
+      "standard_deviation_after_transformation": 0.4795835039136009,
+      "missing_value_count": 0
+    },
+    "RB1_tpm": {
+      "median_imputation_value": 33.8086,
+      "log1p_transformed": true,
+      "mean_after_transformation": 3.4184979210652013,
+      "standard_deviation_after_transformation": 0.6024933813125849,
+      "missing_value_count": 0
+    },
+    "ESR1_tpm": {
+      "median_imputation_value": 91.07454999999999,
+      "log1p_transformed": true,
+      "mean_after_transformation": 4.031501718951799,
+      "standard_deviation_after_transformation": 1.8520616838946538,
+      "missing_value_count": 0
+    },
+    "PGR_tpm": {
+      "median_imputation_value": 9.0706,
+      "log1p_transformed": true,
+      "mean_after_transformation": 2.373448121303451,
+      "standard_deviation_after_transformation": 1.7798142594825375,
+      "missing_value_count": 0
+    },
+    "EGFR_tpm": {
+      "median_imputation_value": 6.9860500000000005,
+      "log1p_transformed": true,
+      "mean_after_transformation": 2.212874680201598,
+      "standard_deviation_after_transformation": 1.1191810170555587,
+      "missing_value_count": 0
+    },
+    "CD274_tpm": {
+      "median_imputation_value": 3.0393499999999998,
+      "log1p_transformed": true,
+      "mean_after_transformation": 1.4713228564590215,
+      "standard_deviation_after_transformation": 0.578816312926062,
+      "missing_value_count": 0
+    },
+    "MYC_tpm": {
+      "median_imputation_value": 61.75205,
+      "log1p_transformed": true,
+      "mean_after_transformation": 3.9905185282005093,
+      "standard_deviation_after_transformation": 0.8783346961016976,
+      "missing_value_count": 0
+    }
+  },
+  "categorical_parameters": {
+    "missing_category_value": "__MISSING__",
+    "categories": {
+      "tumor_stage": [
+        "__MISSING__"
+      ],
+      "tumor_grade": [
+        "__MISSING__"
+      ],
+      "primary_diagnosis": [
+        "Adenocarcinoma, NOS",
+        "Adenoid cystic carcinoma",
+        "Apocrine adenocarcinoma",
+        "Basal cell carcinoma, NOS",
+        "Carcinoma, NOS",
+        "Infiltrating duct and lobular carcinoma",
+        "Infiltrating duct carcinoma, NOS",
+        "Infiltrating duct mixed with other types of carcinoma",
+        "Infiltrating lobular mixed with other types of carcinoma",
+        "Invasive micropapillary carcinoma",
+        "Large cell neuroendocrine carcinoma",
+        "Lobular carcinoma in situ, NOS",
+        "Lobular carcinoma, NOS",
+        "Metaplastic carcinoma, NOS",
+        "Mucinous adenocarcinoma",
+        "Not Reported",
+        "Paget disease and infiltrating duct carcinoma of breast"
+      ]
+    }
+  },
+  "transformations": {
+    "numeric_missing_values": "median imputation",
+    "age_at_diagnosis_years": "median imputation followed by standardization",
+    "total_mutation_count": "median imputation, log1p transformation, and standardization",
+    "rna_tpm": "median imputation, log1p transformation, and standardization",
+    "categorical_clinical_features": "missing-category replacement and one-hot encoding",
+    "mutation_features": "preserved as binary 0/1 indicators"
+  },
+  "data_leakage_protection": {
+    "excluded_from_model_features": [
+      "vital_status",
+      "days_to_death",
+      "days_to_last_follow_up"
+    ],
+    "reason": "Survival and follow-up variables are retained for later outcome construction but are not included as predictors."
+  },
+  "research_use_only": true
+}

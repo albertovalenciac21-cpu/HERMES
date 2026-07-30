@@ -1,0 +1,145 @@
+{
+  "project": "TCGA-BRCA",
+  "cohort": "confirmed_tnbc",
+  "build_status": "complete",
+  "target_reached": true,
+  "tnbc_definition": "ER-negative, PR-negative, and HER2-negative in TCGA clinical supplements",
+  "clinical_file_limit": 1000,
+  "confirmed_tnbc_patient_count": 128,
+  "molecularly_eligible_tnbc_count": 110,
+  "requested_patient_count": 5,
+  "attempted_patient_count": 5,
+  "completed_patient_count": 5,
+  "failed_patient_count": 0,
+  "missing_rna_patient_count": 1,
+  "missing_mutation_patient_count": 17,
+  "missing_rna_patient_ids": [
+    "TCGA-AR-A0U1"
+  ],
+  "missing_mutation_patient_ids": [
+    "TCGA-A2-A3XS",
+    "TCGA-A2-A3XT",
+    "TCGA-A2-A3XX",
+    "TCGA-A2-A3XY",
+    "TCGA-A7-A4SD",
+    "TCGA-A8-A07C",
+    "TCGA-AC-A2QJ",
+    "TCGA-AR-A0U4",
+    "TCGA-B6-A3ZX",
+    "TCGA-B6-A400",
+    "TCGA-BH-A0BG",
+    "TCGA-BH-A0E6",
+    "TCGA-C8-A3M7",
+    "TCGA-E2-A1LI",
+    "TCGA-EW-A1OW",
+    "TCGA-EW-A3U0",
+    "TCGA-GI-A2C9"
+  ],
+  "selected_genes": [
+    "TP53",
+    "BRCA1",
+    "BRCA2",
+    "ERBB2",
+    "PIK3CA",
+    "PTEN",
+    "RB1",
+    "ESR1",
+    "PGR",
+    "EGFR",
+    "CD274",
+    "MYC"
+  ],
+  "outcome_summary": {
+    "counts": {
+      "alive": 4,
+      "dead": 1,
+      "unknown": 0
+    },
+    "labeled_patient_count": 5,
+    "dead_fraction": 0.2,
+    "class_imbalance_warning": true
+  },
+  "patient_specific_maf_filtering": true,
+  "unique_mutation_files_downloaded_or_reused": 5,
+  "cohort_directory": "data\\cohort\\tcga-tnbc",
+  "dataset_path": "data\\datasets\\tcga_tnbc_test_5.csv",
+  "patients": [
+    {
+      "patient": "TCGA-A1-A0SK",
+      "profile_path": "data\\cohort\\tcga-tnbc\\TCGA-A1-A0SK\\profile.json",
+      "rna_downloaded_now": true,
+      "mutation_downloaded_now": true,
+      "found_rna_genes": 12,
+      "patient_mutation_count": 70,
+      "selected_mutation_count": 2,
+      "vital_status": "Dead",
+      "receptor_status": {
+        "er": "negative",
+        "pr": "negative",
+        "her2": "negative"
+      }
+    },
+    {
+      "patient": "TCGA-A1-A0SO",
+      "profile_path": "data\\cohort\\tcga-tnbc\\TCGA-A1-A0SO\\profile.json",
+      "rna_downloaded_now": true,
+      "mutation_downloaded_now": true,
+      "found_rna_genes": 12,
+      "patient_mutation_count": 309,
+      "selected_mutation_count": 2,
+      "vital_status": "Alive",
+      "receptor_status": {
+        "er": "negative",
+        "pr": "negative",
+        "her2": "negative"
+      }
+    },
+    {
+      "patient": "TCGA-A1-A0SP",
+      "profile_path": "data\\cohort\\tcga-tnbc\\TCGA-A1-A0SP\\profile.json",
+      "rna_downloaded_now": true,
+      "mutation_downloaded_now": true,
+      "found_rna_genes": 12,
+      "patient_mutation_count": 52,
+      "selected_mutation_count": 1,
+      "vital_status": "Alive",
+      "receptor_status": {
+        "er": "negative",
+        "pr": "negative",
+        "her2": "negative"
+      }
+    },
+    {
+      "patient": "TCGA-A2-A04Q",
+      "profile_path": "data\\cohort\\tcga-tnbc\\TCGA-A2-A04Q\\profile.json",
+      "rna_downloaded_now": true,
+      "mutation_downloaded_now": true,
+      "found_rna_genes": 12,
+      "patient_mutation_count": 47,
+      "selected_mutation_count": 0,
+      "vital_status": "Alive",
+      "receptor_status": {
+        "er": "negative",
+        "pr": "negative",
+        "her2": "negative"
+      }
+    },
+    {
+      "patient": "TCGA-A2-A04T",
+      "profile_path": "data\\cohort\\tcga-tnbc\\TCGA-A2-A04T\\profile.json",
+      "rna_downloaded_now": true,
+      "mutation_downloaded_now": true,
+      "found_rna_genes": 12,
+      "patient_mutation_count": 108,
+      "selected_mutation_count": 4,
+      "vital_status": "Alive",
+      "receptor_status": {
+        "er": "negative",
+        "pr": "negative",
+        "her2": "negative"
+      }
+    }
+  ],
+  "failures": [],
+  "research_use_only": true
+}

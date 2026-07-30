@@ -1,0 +1,345 @@
+{
+  "project": "TCGA-BRCA",
+  "model_name": "Baseline vital-status logistic regression",
+  "model_type": "LogisticRegression",
+  "training_status": "complete",
+  "source_dataset_path": "data\\processed\\tcga_brca_cohort_100_patients_ml_ready.csv",
+  "model_path": "data\\models\\trojan_horse_logistic_regression_v1.joblib",
+  "target": {
+    "column": "vital_status",
+    "mapping": {
+      "alive": 0,
+      "dead": 1
+    },
+    "positive_class": "Dead",
+    "negative_class": "Alive"
+  },
+  "dataset_summary": {
+    "source_patient_count": 100,
+    "training_patient_count": 100,
+    "excluded_patient_count": 0,
+    "alive_count": 89,
+    "dead_count": 11,
+    "feature_count": 39
+  },
+  "cross_validation": {
+    "method": "StratifiedKFold",
+    "number_of_folds": 5,
+    "shuffle": true,
+    "random_state": 42,
+    "class_weight": "balanced",
+    "decision_threshold": 0.5
+  },
+  "cross_validated_metrics": {
+    "accuracy": 0.79,
+    "balanced_accuracy": 0.6032,
+    "sensitivity_recall": 0.3636,
+    "specificity": 0.8427,
+    "precision": 0.2222,
+    "f1_score": 0.2759,
+    "roc_auc": 0.6333
+  },
+  "confusion_matrix": {
+    "labels": [
+      "Alive",
+      "Dead"
+    ],
+    "matrix": [
+      [
+        75,
+        14
+      ],
+      [
+        7,
+        4
+      ]
+    ],
+    "true_negative": 75,
+    "false_positive": 14,
+    "false_negative": 7,
+    "true_positive": 4
+  },
+  "top_coefficients_by_absolute_value": [
+    {
+      "feature": "PGR_tpm__scaled",
+      "coefficient": -1.325616,
+      "absolute_coefficient": 1.325616
+    },
+    {
+      "feature": "TP53_mutated",
+      "coefficient": 1.195428,
+      "absolute_coefficient": 1.195428
+    },
+    {
+      "feature": "ERBB2_tpm__scaled",
+      "coefficient": -1.120115,
+      "absolute_coefficient": 1.120115
+    },
+    {
+      "feature": "total_mutation_count__scaled",
+      "coefficient": -1.091825,
+      "absolute_coefficient": 1.091825
+    },
+    {
+      "feature": "PIK3CA_mutated",
+      "coefficient": 1.070415,
+      "absolute_coefficient": 1.070415
+    },
+    {
+      "feature": "PTEN_mutated",
+      "coefficient": 0.991983,
+      "absolute_coefficient": 0.991983
+    },
+    {
+      "feature": "ESR1_tpm__scaled",
+      "coefficient": 0.854568,
+      "absolute_coefficient": 0.854568
+    },
+    {
+      "feature": "BRCA2_tpm__scaled",
+      "coefficient": -0.828547,
+      "absolute_coefficient": 0.828547
+    },
+    {
+      "feature": "tumor_stage__missing",
+      "coefficient": -0.701808,
+      "absolute_coefficient": 0.701808
+    },
+    {
+      "feature": "tumor_grade__missing",
+      "coefficient": -0.701808,
+      "absolute_coefficient": 0.701808
+    },
+    {
+      "feature": "PIK3CA_tpm__scaled",
+      "coefficient": 0.591614,
+      "absolute_coefficient": 0.591614
+    },
+    {
+      "feature": "TP53_tpm__scaled",
+      "coefficient": 0.552219,
+      "absolute_coefficient": 0.552219
+    },
+    {
+      "feature": "BRCA1_tpm__scaled",
+      "coefficient": 0.449204,
+      "absolute_coefficient": 0.449204
+    },
+    {
+      "feature": "primary_diagnosis__infiltrating_duct_and_lobular_carcinoma",
+      "coefficient": -0.424576,
+      "absolute_coefficient": 0.424576
+    },
+    {
+      "feature": "primary_diagnosis__large_cell_neuroendocrine_carcinoma",
+      "coefficient": 0.412066,
+      "absolute_coefficient": 0.412066
+    }
+  ],
+  "all_coefficients": [
+    {
+      "feature": "PGR_tpm__scaled",
+      "coefficient": -1.325616,
+      "absolute_coefficient": 1.325616
+    },
+    {
+      "feature": "TP53_mutated",
+      "coefficient": 1.195428,
+      "absolute_coefficient": 1.195428
+    },
+    {
+      "feature": "ERBB2_tpm__scaled",
+      "coefficient": -1.120115,
+      "absolute_coefficient": 1.120115
+    },
+    {
+      "feature": "total_mutation_count__scaled",
+      "coefficient": -1.091825,
+      "absolute_coefficient": 1.091825
+    },
+    {
+      "feature": "PIK3CA_mutated",
+      "coefficient": 1.070415,
+      "absolute_coefficient": 1.070415
+    },
+    {
+      "feature": "PTEN_mutated",
+      "coefficient": 0.991983,
+      "absolute_coefficient": 0.991983
+    },
+    {
+      "feature": "ESR1_tpm__scaled",
+      "coefficient": 0.854568,
+      "absolute_coefficient": 0.854568
+    },
+    {
+      "feature": "BRCA2_tpm__scaled",
+      "coefficient": -0.828547,
+      "absolute_coefficient": 0.828547
+    },
+    {
+      "feature": "tumor_stage__missing",
+      "coefficient": -0.701808,
+      "absolute_coefficient": 0.701808
+    },
+    {
+      "feature": "tumor_grade__missing",
+      "coefficient": -0.701808,
+      "absolute_coefficient": 0.701808
+    },
+    {
+      "feature": "PIK3CA_tpm__scaled",
+      "coefficient": 0.591614,
+      "absolute_coefficient": 0.591614
+    },
+    {
+      "feature": "TP53_tpm__scaled",
+      "coefficient": 0.552219,
+      "absolute_coefficient": 0.552219
+    },
+    {
+      "feature": "BRCA1_tpm__scaled",
+      "coefficient": 0.449204,
+      "absolute_coefficient": 0.449204
+    },
+    {
+      "feature": "primary_diagnosis__infiltrating_duct_and_lobular_carcinoma",
+      "coefficient": -0.424576,
+      "absolute_coefficient": 0.424576
+    },
+    {
+      "feature": "primary_diagnosis__large_cell_neuroendocrine_carcinoma",
+      "coefficient": 0.412066,
+      "absolute_coefficient": 0.412066
+    },
+    {
+      "feature": "PTEN_tpm__scaled",
+      "coefficient": -0.361861,
+      "absolute_coefficient": 0.361861
+    },
+    {
+      "feature": "RB1_mutated",
+      "coefficient": -0.334622,
+      "absolute_coefficient": 0.334622
+    },
+    {
+      "feature": "EGFR_tpm__scaled",
+      "coefficient": -0.302464,
+      "absolute_coefficient": 0.302464
+    },
+    {
+      "feature": "RB1_tpm__scaled",
+      "coefficient": -0.266461,
+      "absolute_coefficient": 0.266461
+    },
+    {
+      "feature": "primary_diagnosis__not_reported",
+      "coefficient": -0.232643,
+      "absolute_coefficient": 0.232643
+    },
+    {
+      "feature": "BRCA2_mutated",
+      "coefficient": -0.228159,
+      "absolute_coefficient": 0.228159
+    },
+    {
+      "feature": "MYC_tpm__scaled",
+      "coefficient": -0.189594,
+      "absolute_coefficient": 0.189594
+    },
+    {
+      "feature": "primary_diagnosis__infiltrating_duct_carcinoma_nos",
+      "coefficient": -0.187588,
+      "absolute_coefficient": 0.187588
+    },
+    {
+      "feature": "CD274_tpm__scaled",
+      "coefficient": 0.14436,
+      "absolute_coefficient": 0.14436
+    },
+    {
+      "feature": "primary_diagnosis__infiltrating_duct_mixed_with_other_types_of_carcinoma",
+      "coefficient": -0.140481,
+      "absolute_coefficient": 0.140481
+    },
+    {
+      "feature": "primary_diagnosis__adenoid_cystic_carcinoma",
+      "coefficient": -0.136331,
+      "absolute_coefficient": 0.136331
+    },
+    {
+      "feature": "primary_diagnosis__lobular_carcinoma_nos",
+      "coefficient": 0.121134,
+      "absolute_coefficient": 0.121134
+    },
+    {
+      "feature": "EGFR_mutated",
+      "coefficient": -0.120789,
+      "absolute_coefficient": 0.120789
+    },
+    {
+      "feature": "BRCA1_mutated",
+      "coefficient": 0.110583,
+      "absolute_coefficient": 0.110583
+    },
+    {
+      "feature": "ERBB2_mutated",
+      "coefficient": -0.080575,
+      "absolute_coefficient": 0.080575
+    },
+    {
+      "feature": "age_at_diagnosis_years__scaled",
+      "coefficient": 0.074052,
+      "absolute_coefficient": 0.074052
+    },
+    {
+      "feature": "primary_diagnosis__adenocarcinoma_nos",
+      "coefficient": -0.04939,
+      "absolute_coefficient": 0.04939
+    },
+    {
+      "feature": "primary_diagnosis__invasive_micropapillary_carcinoma",
+      "coefficient": -0.045107,
+      "absolute_coefficient": 0.045107
+    },
+    {
+      "feature": "ESR1_mutated",
+      "coefficient": -0.039842,
+      "absolute_coefficient": 0.039842
+    },
+    {
+      "feature": "PGR_mutated",
+      "coefficient": -0.039842,
+      "absolute_coefficient": 0.039842
+    },
+    {
+      "feature": "primary_diagnosis__apocrine_adenocarcinoma",
+      "coefficient": -0.011712,
+      "absolute_coefficient": 0.011712
+    },
+    {
+      "feature": "primary_diagnosis__lobular_carcinoma_in_situ_nos",
+      "coefficient": -0.00718,
+      "absolute_coefficient": 0.00718
+    },
+    {
+      "feature": "CD274_mutated",
+      "coefficient": 0.0,
+      "absolute_coefficient": 0.0
+    },
+    {
+      "feature": "MYC_mutated",
+      "coefficient": 0.0,
+      "absolute_coefficient": 0.0
+    }
+  ],
+  "excluded_patients": [],
+  "limitations": [
+    "The cohort contains only 25 patients and is intended for technical pipeline development.",
+    "Vital status is a preliminary outcome and does not account for differences in follow-up time.",
+    "Cross-validation estimates will be unstable because of the small sample size.",
+    "The model must not be used for patient care or clinical decision-making."
+  ],
+  "recommended_next_step": "Expand the cohort and construct a time-aware survival outcome before clinical model evaluation.",
+  "research_use_only": true
+}

@@ -1,0 +1,229 @@
+{
+  "project": "TCGA-BRCA",
+  "training_status": "complete",
+  "framework_name": "Trojan Horse model comparison v1",
+  "source_dataset_path": "data\\processed\\tcga_brca_cohort_250_patients_ml_ready.csv",
+  "best_model_path": "data\\models\\trojan_horse_best_model_v2.joblib",
+  "selection_rule": "Highest balanced accuracy; ties resolved by ROC-AUC and then F1 score.",
+  "dataset_summary": {
+    "source_patient_count": 250,
+    "training_patient_count": 250,
+    "excluded_patient_count": 0,
+    "alive_count": 229,
+    "dead_count": 21,
+    "feature_count": 45
+  },
+  "cross_validation": {
+    "method": "StratifiedKFold",
+    "number_of_folds": 5,
+    "shuffle": true,
+    "random_state": 42,
+    "decision_threshold": 0.5
+  },
+  "models_compared": [
+    {
+      "model_name": "logistic_regression",
+      "model_type": "LogisticRegression",
+      "metrics": {
+        "accuracy": 0.748,
+        "balanced_accuracy": 0.5813,
+        "sensitivity_recall": 0.381,
+        "specificity": 0.7817,
+        "precision": 0.1379,
+        "f1_score": 0.2025,
+        "roc_auc": 0.55
+      },
+      "confusion_matrix": [
+        [
+          179,
+          50
+        ],
+        [
+          13,
+          8
+        ]
+      ]
+    },
+    {
+      "model_name": "gradient_boosting",
+      "model_type": "GradientBoostingClassifier",
+      "metrics": {
+        "accuracy": 0.908,
+        "balanced_accuracy": 0.5173,
+        "sensitivity_recall": 0.0476,
+        "specificity": 0.9869,
+        "precision": 0.25,
+        "f1_score": 0.08,
+        "roc_auc": 0.5546
+      },
+      "confusion_matrix": [
+        [
+          226,
+          3
+        ],
+        [
+          20,
+          1
+        ]
+      ]
+    },
+    {
+      "model_name": "random_forest",
+      "model_type": "RandomForestClassifier",
+      "metrics": {
+        "accuracy": 0.916,
+        "balanced_accuracy": 0.5,
+        "sensitivity_recall": 0.0,
+        "specificity": 1.0,
+        "precision": 0.0,
+        "f1_score": 0.0,
+        "roc_auc": 0.5409
+      },
+      "confusion_matrix": [
+        [
+          229,
+          0
+        ],
+        [
+          21,
+          0
+        ]
+      ]
+    }
+  ],
+  "best_model": {
+    "model_name": "logistic_regression",
+    "model_type": "LogisticRegression",
+    "metrics": {
+      "accuracy": 0.748,
+      "balanced_accuracy": 0.5813,
+      "sensitivity_recall": 0.381,
+      "specificity": 0.7817,
+      "precision": 0.1379,
+      "f1_score": 0.2025,
+      "roc_auc": 0.55
+    },
+    "confusion_matrix": [
+      [
+        179,
+        50
+      ],
+      [
+        13,
+        8
+      ]
+    ]
+  },
+  "best_model_top_feature_importance": [
+    {
+      "feature": "primary_diagnosis__paget_disease_and_infiltrating_duct_carcinoma_of_breast",
+      "coefficient": 2.47016,
+      "absolute_importance": 2.47016
+    },
+    {
+      "feature": "PGR_tpm__scaled",
+      "coefficient": -1.269765,
+      "absolute_importance": 1.269765
+    },
+    {
+      "feature": "primary_diagnosis__metaplastic_carcinoma_nos",
+      "coefficient": -1.17772,
+      "absolute_importance": 1.17772
+    },
+    {
+      "feature": "BRCA2_mutated",
+      "coefficient": 1.149226,
+      "absolute_importance": 1.149226
+    },
+    {
+      "feature": "TP53_mutated",
+      "coefficient": 1.102822,
+      "absolute_importance": 1.102822
+    },
+    {
+      "feature": "BRCA2_tpm__scaled",
+      "coefficient": -0.950938,
+      "absolute_importance": 0.950938
+    },
+    {
+      "feature": "PTEN_mutated",
+      "coefficient": 0.921587,
+      "absolute_importance": 0.921587
+    },
+    {
+      "feature": "primary_diagnosis__large_cell_neuroendocrine_carcinoma",
+      "coefficient": 0.90953,
+      "absolute_importance": 0.90953
+    },
+    {
+      "feature": "BRCA1_mutated",
+      "coefficient": 0.781725,
+      "absolute_importance": 0.781725
+    },
+    {
+      "feature": "ESR1_mutated",
+      "coefficient": 0.756743,
+      "absolute_importance": 0.756743
+    },
+    {
+      "feature": "PIK3CA_mutated",
+      "coefficient": 0.677981,
+      "absolute_importance": 0.677981
+    },
+    {
+      "feature": "EGFR_mutated",
+      "coefficient": 0.541122,
+      "absolute_importance": 0.541122
+    },
+    {
+      "feature": "ERBB2_mutated",
+      "coefficient": 0.535736,
+      "absolute_importance": 0.535736
+    },
+    {
+      "feature": "primary_diagnosis__infiltrating_duct_and_lobular_carcinoma",
+      "coefficient": -0.513685,
+      "absolute_importance": 0.513685
+    },
+    {
+      "feature": "ERBB2_tpm__scaled",
+      "coefficient": -0.503341,
+      "absolute_importance": 0.503341
+    },
+    {
+      "feature": "EGFR_tpm__scaled",
+      "coefficient": -0.462701,
+      "absolute_importance": 0.462701
+    },
+    {
+      "feature": "tumor_stage__missing",
+      "coefficient": -0.438964,
+      "absolute_importance": 0.438964
+    },
+    {
+      "feature": "tumor_grade__missing",
+      "coefficient": -0.438964,
+      "absolute_importance": 0.438964
+    },
+    {
+      "feature": "ESR1_tpm__scaled",
+      "coefficient": 0.410132,
+      "absolute_importance": 0.410132
+    },
+    {
+      "feature": "PGR_mutated",
+      "coefficient": -0.380893,
+      "absolute_importance": 0.380893
+    }
+  ],
+  "excluded_patients": [],
+  "limitations": [
+    "Vital status is a preliminary binary endpoint that does not account for follow-up time.",
+    "The cohort is imbalanced, with fewer deceased than living patients.",
+    "Model selection and evaluation use the same cohort and therefore require later validation on an independent holdout or external cohort.",
+    "The saved model is for research and technical development only, not clinical care."
+  ],
+  "recommended_next_step": "Add nested tuning or a locked holdout set, then build the prediction endpoint around the saved model package.",
+  "research_use_only": true,
+  "clinically_validated": false
+}

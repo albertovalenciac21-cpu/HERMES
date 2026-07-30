@@ -1,0 +1,249 @@
+{
+  "project": "Project Trojan Horse",
+  "cohort_name": "tcga_tnbc_cohort",
+  "preprocessing_version": "1.0",
+  "source_dataset_path": "data\\datasets\\tcga_tnbc_cohort.csv",
+  "processed_dataset_path": "data\\processed\\tcga_tnbc_cohort_ml_ready.csv",
+  "row_count": 110,
+  "selected_genes": [
+    "TP53",
+    "BRCA1",
+    "BRCA2",
+    "ERBB2",
+    "PIK3CA",
+    "PTEN",
+    "RB1",
+    "ESR1",
+    "PGR",
+    "EGFR",
+    "CD274",
+    "MYC"
+  ],
+  "identifier_column": "patient_id",
+  "outcome_reference_columns": [
+    "vital_status",
+    "days_to_death",
+    "days_to_last_follow_up"
+  ],
+  "model_feature_count": 36,
+  "model_feature_names": [
+    "age_at_diagnosis_years__scaled",
+    "total_mutation_count__scaled",
+    "TP53_tpm__scaled",
+    "BRCA1_tpm__scaled",
+    "BRCA2_tpm__scaled",
+    "ERBB2_tpm__scaled",
+    "PIK3CA_tpm__scaled",
+    "PTEN_tpm__scaled",
+    "RB1_tpm__scaled",
+    "ESR1_tpm__scaled",
+    "PGR_tpm__scaled",
+    "EGFR_tpm__scaled",
+    "CD274_tpm__scaled",
+    "MYC_tpm__scaled",
+    "tumor_stage__missing",
+    "tumor_grade__missing",
+    "primary_diagnosis__basal_cell_carcinoma_nos",
+    "primary_diagnosis__carcinoma_nos",
+    "primary_diagnosis__infiltrating_duct_carcinoma_nos",
+    "primary_diagnosis__large_cell_neuroendocrine_carcinoma",
+    "primary_diagnosis__lobular_carcinoma_nos",
+    "primary_diagnosis__medullary_carcinoma_nos",
+    "primary_diagnosis__metaplastic_carcinoma_nos",
+    "primary_diagnosis__not_reported",
+    "TP53_mutated",
+    "BRCA1_mutated",
+    "BRCA2_mutated",
+    "ERBB2_mutated",
+    "PIK3CA_mutated",
+    "PTEN_mutated",
+    "RB1_mutated",
+    "ESR1_mutated",
+    "PGR_mutated",
+    "EGFR_mutated",
+    "CD274_mutated",
+    "MYC_mutated"
+  ],
+  "feature_groups": {
+    "numeric_scaled": [
+      "age_at_diagnosis_years__scaled",
+      "total_mutation_count__scaled",
+      "TP53_tpm__scaled",
+      "BRCA1_tpm__scaled",
+      "BRCA2_tpm__scaled",
+      "ERBB2_tpm__scaled",
+      "PIK3CA_tpm__scaled",
+      "PTEN_tpm__scaled",
+      "RB1_tpm__scaled",
+      "ESR1_tpm__scaled",
+      "PGR_tpm__scaled",
+      "EGFR_tpm__scaled",
+      "CD274_tpm__scaled",
+      "MYC_tpm__scaled"
+    ],
+    "categorical_one_hot": [
+      "tumor_stage__missing",
+      "tumor_grade__missing",
+      "primary_diagnosis__basal_cell_carcinoma_nos",
+      "primary_diagnosis__carcinoma_nos",
+      "primary_diagnosis__infiltrating_duct_carcinoma_nos",
+      "primary_diagnosis__large_cell_neuroendocrine_carcinoma",
+      "primary_diagnosis__lobular_carcinoma_nos",
+      "primary_diagnosis__medullary_carcinoma_nos",
+      "primary_diagnosis__metaplastic_carcinoma_nos",
+      "primary_diagnosis__not_reported"
+    ],
+    "binary_mutations": [
+      "TP53_mutated",
+      "BRCA1_mutated",
+      "BRCA2_mutated",
+      "ERBB2_mutated",
+      "PIK3CA_mutated",
+      "PTEN_mutated",
+      "RB1_mutated",
+      "ESR1_mutated",
+      "PGR_mutated",
+      "EGFR_mutated",
+      "CD274_mutated",
+      "MYC_mutated"
+    ]
+  },
+  "numeric_parameters": {
+    "age_at_diagnosis_years": {
+      "median_imputation_value": 55.25,
+      "log1p_transformed": false,
+      "mean_after_transformation": 57.29245454545455,
+      "standard_deviation_after_transformation": 11.490244018800047,
+      "missing_value_count": 6
+    },
+    "total_mutation_count": {
+      "median_imputation_value": 69.0,
+      "log1p_transformed": true,
+      "mean_after_transformation": 4.3147708511802945,
+      "standard_deviation_after_transformation": 0.8702807023428536,
+      "missing_value_count": 0
+    },
+    "TP53_tpm": {
+      "median_imputation_value": 53.9683,
+      "log1p_transformed": true,
+      "mean_after_transformation": 3.7960061066808164,
+      "standard_deviation_after_transformation": 0.8581164868154554,
+      "missing_value_count": 0
+    },
+    "BRCA1_tpm": {
+      "median_imputation_value": 6.0211500000000004,
+      "log1p_transformed": true,
+      "mean_after_transformation": 1.888679272964206,
+      "standard_deviation_after_transformation": 0.7206467956448022,
+      "missing_value_count": 0
+    },
+    "BRCA2_tpm": {
+      "median_imputation_value": 3.8381499999999997,
+      "log1p_transformed": true,
+      "mean_after_transformation": 1.60617950596314,
+      "standard_deviation_after_transformation": 0.6498775535204858,
+      "missing_value_count": 0
+    },
+    "ERBB2_tpm": {
+      "median_imputation_value": 56.745850000000004,
+      "log1p_transformed": true,
+      "mean_after_transformation": 4.016023292781022,
+      "standard_deviation_after_transformation": 0.7140512745943326,
+      "missing_value_count": 0
+    },
+    "PIK3CA_tpm": {
+      "median_imputation_value": 8.06055,
+      "log1p_transformed": true,
+      "mean_after_transformation": 2.1933054536941596,
+      "standard_deviation_after_transformation": 0.47616261231126106,
+      "missing_value_count": 0
+    },
+    "PTEN_tpm": {
+      "median_imputation_value": 25.1999,
+      "log1p_transformed": true,
+      "mean_after_transformation": 3.1860054615160993,
+      "standard_deviation_after_transformation": 0.6461196205676281,
+      "missing_value_count": 0
+    },
+    "RB1_tpm": {
+      "median_imputation_value": 17.1929,
+      "log1p_transformed": true,
+      "mean_after_transformation": 2.9129908301912457,
+      "standard_deviation_after_transformation": 0.6449872567280837,
+      "missing_value_count": 0
+    },
+    "ESR1_tpm": {
+      "median_imputation_value": 1.12235,
+      "log1p_transformed": true,
+      "mean_after_transformation": 1.1231730022351984,
+      "standard_deviation_after_transformation": 1.0224567020791429,
+      "missing_value_count": 0
+    },
+    "PGR_tpm": {
+      "median_imputation_value": 0.32255,
+      "log1p_transformed": true,
+      "mean_after_transformation": 0.6087201552894288,
+      "standard_deviation_after_transformation": 0.8793917040936684,
+      "missing_value_count": 0
+    },
+    "EGFR_tpm": {
+      "median_imputation_value": 24.590600000000002,
+      "log1p_transformed": true,
+      "mean_after_transformation": 3.3294975786801406,
+      "standard_deviation_after_transformation": 1.066923692578684,
+      "missing_value_count": 0
+    },
+    "CD274_tpm": {
+      "median_imputation_value": 4.62205,
+      "log1p_transformed": true,
+      "mean_after_transformation": 1.7268677965595423,
+      "standard_deviation_after_transformation": 0.7384180495407459,
+      "missing_value_count": 0
+    },
+    "MYC_tpm": {
+      "median_imputation_value": 86.95609999999999,
+      "log1p_transformed": true,
+      "mean_after_transformation": 4.350447538775406,
+      "standard_deviation_after_transformation": 0.9078081109260056,
+      "missing_value_count": 0
+    }
+  },
+  "categorical_parameters": {
+    "missing_category_value": "__MISSING__",
+    "categories": {
+      "tumor_stage": [
+        "__MISSING__"
+      ],
+      "tumor_grade": [
+        "__MISSING__"
+      ],
+      "primary_diagnosis": [
+        "Basal cell carcinoma, NOS",
+        "Carcinoma, NOS",
+        "Infiltrating duct carcinoma, NOS",
+        "Large cell neuroendocrine carcinoma",
+        "Lobular carcinoma, NOS",
+        "Medullary carcinoma, NOS",
+        "Metaplastic carcinoma, NOS",
+        "Not Reported"
+      ]
+    }
+  },
+  "transformations": {
+    "numeric_missing_values": "median imputation",
+    "age_at_diagnosis_years": "median imputation followed by standardization",
+    "total_mutation_count": "median imputation, log1p transformation, and standardization",
+    "rna_tpm": "median imputation, log1p transformation, and standardization",
+    "categorical_clinical_features": "missing-category replacement and one-hot encoding",
+    "mutation_features": "preserved as binary 0/1 indicators"
+  },
+  "data_leakage_protection": {
+    "excluded_from_model_features": [
+      "vital_status",
+      "days_to_death",
+      "days_to_last_follow_up"
+    ],
+    "reason": "Survival and follow-up variables are retained for later outcome construction but are not included as predictors."
+  },
+  "research_use_only": true
+}

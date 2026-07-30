@@ -1,0 +1,580 @@
+{
+  "project": "Project Trojan Horse",
+  "task": "TCGA-BRCA vital-status classification",
+  "optimization_status": "complete",
+  "source_dataset_path": "data\\processed\\tcga_brca_cohort_250_patients_ml_ready.csv",
+  "optimized_model_path": "data\\models\\trojan_horse_optimized_model_v3.joblib",
+  "dataset_summary": {
+    "source_patient_count": 250,
+    "training_patient_count": 250,
+    "excluded_patient_count": 0,
+    "alive_count": 229,
+    "dead_count": 21,
+    "feature_count": 45
+  },
+  "search_strategy": {
+    "method": "GridSearchCV",
+    "scoring": "balanced_accuracy",
+    "cross_validation": "StratifiedKFold",
+    "number_of_folds": 5,
+    "random_state": 42,
+    "threshold_range": "0.15 to 0.75 in 0.01 increments"
+  },
+  "model_rankings": [
+    {
+      "model_name": "logistic_regression",
+      "model_type": "LogisticRegression",
+      "best_parameters": {
+        "C": 0.05,
+        "penalty": "l1"
+      },
+      "grid_search_best_balanced_accuracy": 0.6045,
+      "default_threshold_evaluation": {
+        "threshold": 0.5,
+        "metrics": {
+          "accuracy": 0.532,
+          "balanced_accuracy": 0.5715,
+          "sensitivity_recall": 0.619,
+          "specificity": 0.524,
+          "precision": 0.1066,
+          "f1_score": 0.1818,
+          "roc_auc": 0.5854
+        },
+        "confusion_matrix": [
+          [
+            120,
+            109
+          ],
+          [
+            8,
+            13
+          ]
+        ]
+      },
+      "optimized_threshold_evaluation": {
+        "threshold": 0.47,
+        "metrics": {
+          "accuracy": 0.392,
+          "balanced_accuracy": 0.5816,
+          "sensitivity_recall": 0.8095,
+          "specificity": 0.3537,
+          "precision": 0.103,
+          "f1_score": 0.1828,
+          "roc_auc": 0.5854
+        },
+        "confusion_matrix": [
+          [
+            81,
+            148
+          ],
+          [
+            4,
+            17
+          ]
+        ]
+      }
+    },
+    {
+      "model_name": "gradient_boosting",
+      "model_type": "GradientBoostingClassifier",
+      "best_parameters": {
+        "learning_rate": 0.05,
+        "max_depth": 2,
+        "min_samples_leaf": 4,
+        "n_estimators": 200
+      },
+      "grid_search_best_balanced_accuracy": 0.5707,
+      "default_threshold_evaluation": {
+        "threshold": 0.5,
+        "metrics": {
+          "accuracy": 0.912,
+          "balanced_accuracy": 0.5194,
+          "sensitivity_recall": 0.0476,
+          "specificity": 0.9913,
+          "precision": 0.3333,
+          "f1_score": 0.0833,
+          "roc_auc": 0.5348
+        },
+        "confusion_matrix": [
+          [
+            227,
+            2
+          ],
+          [
+            20,
+            1
+          ]
+        ]
+      },
+      "optimized_threshold_evaluation": {
+        "threshold": 0.67,
+        "metrics": {
+          "accuracy": 0.92,
+          "balanced_accuracy": 0.5238,
+          "sensitivity_recall": 0.0476,
+          "specificity": 1.0,
+          "precision": 1.0,
+          "f1_score": 0.0909,
+          "roc_auc": 0.5348
+        },
+        "confusion_matrix": [
+          [
+            229,
+            0
+          ],
+          [
+            20,
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "model_name": "random_forest",
+      "model_type": "RandomForestClassifier",
+      "best_parameters": {
+        "max_depth": null,
+        "max_features": "sqrt",
+        "min_samples_leaf": 1,
+        "n_estimators": 250
+      },
+      "grid_search_best_balanced_accuracy": 0.5,
+      "default_threshold_evaluation": {
+        "threshold": 0.5,
+        "metrics": {
+          "accuracy": 0.916,
+          "balanced_accuracy": 0.5,
+          "sensitivity_recall": 0.0,
+          "specificity": 1.0,
+          "precision": 0.0,
+          "f1_score": 0.0,
+          "roc_auc": 0.5507
+        },
+        "confusion_matrix": [
+          [
+            229,
+            0
+          ],
+          [
+            21,
+            0
+          ]
+        ]
+      },
+      "optimized_threshold_evaluation": {
+        "threshold": 0.25,
+        "metrics": {
+          "accuracy": 0.908,
+          "balanced_accuracy": 0.5173,
+          "sensitivity_recall": 0.0476,
+          "specificity": 0.9869,
+          "precision": 0.25,
+          "f1_score": 0.08,
+          "roc_auc": 0.5507
+        },
+        "confusion_matrix": [
+          [
+            226,
+            3
+          ],
+          [
+            20,
+            1
+          ]
+        ]
+      }
+    }
+  ],
+  "best_model": {
+    "model_name": "logistic_regression",
+    "model_type": "LogisticRegression",
+    "best_parameters": {
+      "C": 0.05,
+      "penalty": "l1"
+    },
+    "grid_search_best_balanced_accuracy": 0.6045,
+    "default_threshold_evaluation": {
+      "threshold": 0.5,
+      "metrics": {
+        "accuracy": 0.532,
+        "balanced_accuracy": 0.5715,
+        "sensitivity_recall": 0.619,
+        "specificity": 0.524,
+        "precision": 0.1066,
+        "f1_score": 0.1818,
+        "roc_auc": 0.5854
+      },
+      "confusion_matrix": [
+        [
+          120,
+          109
+        ],
+        [
+          8,
+          13
+        ]
+      ]
+    },
+    "optimized_threshold_evaluation": {
+      "threshold": 0.47,
+      "metrics": {
+        "accuracy": 0.392,
+        "balanced_accuracy": 0.5816,
+        "sensitivity_recall": 0.8095,
+        "specificity": 0.3537,
+        "precision": 0.103,
+        "f1_score": 0.1828,
+        "roc_auc": 0.5854
+      },
+      "confusion_matrix": [
+        [
+          81,
+          148
+        ],
+        [
+          4,
+          17
+        ]
+      ]
+    }
+  },
+  "best_model_top_feature_importance": [
+    {
+      "feature": "PGR_tpm__scaled",
+      "coefficient": -0.226782,
+      "absolute_importance": 0.226782
+    },
+    {
+      "feature": "RB1_tpm__scaled",
+      "coefficient": -0.165374,
+      "absolute_importance": 0.165374
+    },
+    {
+      "feature": "ERBB2_tpm__scaled",
+      "coefficient": -0.017501,
+      "absolute_importance": 0.017501
+    },
+    {
+      "feature": "age_at_diagnosis_years__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "total_mutation_count__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "TP53_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "BRCA1_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "BRCA2_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "PIK3CA_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "PTEN_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "ESR1_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "EGFR_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "CD274_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "MYC_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "tumor_stage__missing",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "tumor_grade__missing",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__adenocarcinoma_nos",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__adenoid_cystic_carcinoma",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__apocrine_adenocarcinoma",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__basal_cell_carcinoma_nos",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    }
+  ],
+  "all_best_model_feature_importance": [
+    {
+      "feature": "PGR_tpm__scaled",
+      "coefficient": -0.226782,
+      "absolute_importance": 0.226782
+    },
+    {
+      "feature": "RB1_tpm__scaled",
+      "coefficient": -0.165374,
+      "absolute_importance": 0.165374
+    },
+    {
+      "feature": "ERBB2_tpm__scaled",
+      "coefficient": -0.017501,
+      "absolute_importance": 0.017501
+    },
+    {
+      "feature": "age_at_diagnosis_years__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "total_mutation_count__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "TP53_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "BRCA1_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "BRCA2_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "PIK3CA_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "PTEN_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "ESR1_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "EGFR_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "CD274_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "MYC_tpm__scaled",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "tumor_stage__missing",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "tumor_grade__missing",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__adenocarcinoma_nos",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__adenoid_cystic_carcinoma",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__apocrine_adenocarcinoma",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__basal_cell_carcinoma_nos",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__carcinoma_nos",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__infiltrating_duct_and_lobular_carcinoma",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__infiltrating_duct_carcinoma_nos",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__infiltrating_duct_mixed_with_other_types_of_carcinoma",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__infiltrating_lobular_mixed_with_other_types_of_carcinoma",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__invasive_micropapillary_carcinoma",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__large_cell_neuroendocrine_carcinoma",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__lobular_carcinoma_in_situ_nos",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__lobular_carcinoma_nos",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__metaplastic_carcinoma_nos",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__mucinous_adenocarcinoma",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__not_reported",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "primary_diagnosis__paget_disease_and_infiltrating_duct_carcinoma_of_breast",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "TP53_mutated",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "BRCA1_mutated",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "BRCA2_mutated",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "ERBB2_mutated",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "PIK3CA_mutated",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "PTEN_mutated",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "RB1_mutated",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "ESR1_mutated",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "PGR_mutated",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "EGFR_mutated",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "CD274_mutated",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    },
+    {
+      "feature": "MYC_mutated",
+      "coefficient": 0.0,
+      "absolute_importance": 0.0
+    }
+  ],
+  "limitations": [
+    "Hyperparameter selection and threshold development use the same cohort.",
+    "Performance must be confirmed on a locked holdout set or an independent external cohort.",
+    "Vital status does not account for time-to-event or censoring.",
+    "The present cohort is TCGA-BRCA and is not yet restricted to confirmed TNBC cases.",
+    "The model is for research and technical development only."
+  ],
+  "recommended_next_step": "Build a validated inference endpoint around the optimized model package, then add local feature explanations.",
+  "research_use_only": true,
+  "clinically_validated": false
+}

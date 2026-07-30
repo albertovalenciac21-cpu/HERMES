@@ -1,0 +1,251 @@
+{
+  "project": "TCGA-BRCA",
+  "preprocessing_version": "1.0",
+  "source_dataset_path": "data\\datasets\\tcga_brca_pilot_25_patients.csv",
+  "processed_dataset_path": "data\\processed\\tcga_brca_pilot_25_patients_ml_ready.csv",
+  "row_count": 25,
+  "selected_genes": [
+    "TP53",
+    "BRCA1",
+    "BRCA2",
+    "ERBB2",
+    "PIK3CA",
+    "PTEN",
+    "RB1",
+    "ESR1",
+    "PGR",
+    "EGFR",
+    "CD274",
+    "MYC"
+  ],
+  "identifier_column": "patient_id",
+  "outcome_reference_columns": [
+    "vital_status",
+    "days_to_death",
+    "days_to_last_follow_up"
+  ],
+  "model_feature_count": 37,
+  "model_feature_names": [
+    "age_at_diagnosis_years__scaled",
+    "total_mutation_count__scaled",
+    "TP53_tpm__scaled",
+    "BRCA1_tpm__scaled",
+    "BRCA2_tpm__scaled",
+    "ERBB2_tpm__scaled",
+    "PIK3CA_tpm__scaled",
+    "PTEN_tpm__scaled",
+    "RB1_tpm__scaled",
+    "ESR1_tpm__scaled",
+    "PGR_tpm__scaled",
+    "EGFR_tpm__scaled",
+    "CD274_tpm__scaled",
+    "MYC_tpm__scaled",
+    "tumor_stage__missing",
+    "tumor_grade__missing",
+    "primary_diagnosis__adenocarcinoma_nos",
+    "primary_diagnosis__adenoid_cystic_carcinoma",
+    "primary_diagnosis__infiltrating_duct_and_lobular_carcinoma",
+    "primary_diagnosis__infiltrating_duct_carcinoma_nos",
+    "primary_diagnosis__infiltrating_duct_mixed_with_other_types_of_carcinoma",
+    "primary_diagnosis__invasive_micropapillary_carcinoma",
+    "primary_diagnosis__large_cell_neuroendocrine_carcinoma",
+    "primary_diagnosis__lobular_carcinoma_nos",
+    "primary_diagnosis__not_reported",
+    "TP53_mutated",
+    "BRCA1_mutated",
+    "BRCA2_mutated",
+    "ERBB2_mutated",
+    "PIK3CA_mutated",
+    "PTEN_mutated",
+    "RB1_mutated",
+    "ESR1_mutated",
+    "PGR_mutated",
+    "EGFR_mutated",
+    "CD274_mutated",
+    "MYC_mutated"
+  ],
+  "feature_groups": {
+    "numeric_scaled": [
+      "age_at_diagnosis_years__scaled",
+      "total_mutation_count__scaled",
+      "TP53_tpm__scaled",
+      "BRCA1_tpm__scaled",
+      "BRCA2_tpm__scaled",
+      "ERBB2_tpm__scaled",
+      "PIK3CA_tpm__scaled",
+      "PTEN_tpm__scaled",
+      "RB1_tpm__scaled",
+      "ESR1_tpm__scaled",
+      "PGR_tpm__scaled",
+      "EGFR_tpm__scaled",
+      "CD274_tpm__scaled",
+      "MYC_tpm__scaled"
+    ],
+    "categorical_one_hot": [
+      "tumor_stage__missing",
+      "tumor_grade__missing",
+      "primary_diagnosis__adenocarcinoma_nos",
+      "primary_diagnosis__adenoid_cystic_carcinoma",
+      "primary_diagnosis__infiltrating_duct_and_lobular_carcinoma",
+      "primary_diagnosis__infiltrating_duct_carcinoma_nos",
+      "primary_diagnosis__infiltrating_duct_mixed_with_other_types_of_carcinoma",
+      "primary_diagnosis__invasive_micropapillary_carcinoma",
+      "primary_diagnosis__large_cell_neuroendocrine_carcinoma",
+      "primary_diagnosis__lobular_carcinoma_nos",
+      "primary_diagnosis__not_reported"
+    ],
+    "binary_mutations": [
+      "TP53_mutated",
+      "BRCA1_mutated",
+      "BRCA2_mutated",
+      "ERBB2_mutated",
+      "PIK3CA_mutated",
+      "PTEN_mutated",
+      "RB1_mutated",
+      "ESR1_mutated",
+      "PGR_mutated",
+      "EGFR_mutated",
+      "CD274_mutated",
+      "MYC_mutated"
+    ]
+  },
+  "numeric_parameters": {
+    "age_at_diagnosis_years": {
+      "median_imputation_value": 53.36,
+      "log1p_transformed": false,
+      "mean_after_transformation": 54.733999999999995,
+      "standard_deviation_after_transformation": 9.914077667640091,
+      "missing_value_count": 1
+    },
+    "total_mutation_count": {
+      "median_imputation_value": 47.0,
+      "log1p_transformed": true,
+      "mean_after_transformation": 4.180984854659661,
+      "standard_deviation_after_transformation": 1.0529252241657387,
+      "missing_value_count": 0
+    },
+    "TP53_tpm": {
+      "median_imputation_value": 48.5833,
+      "log1p_transformed": true,
+      "mean_after_transformation": 3.8381318088517222,
+      "standard_deviation_after_transformation": 0.7514200922200184,
+      "missing_value_count": 0
+    },
+    "BRCA1_tpm": {
+      "median_imputation_value": 6.914,
+      "log1p_transformed": true,
+      "mean_after_transformation": 2.0636961472988675,
+      "standard_deviation_after_transformation": 0.6677623667330642,
+      "missing_value_count": 0
+    },
+    "BRCA2_tpm": {
+      "median_imputation_value": 2.6204,
+      "log1p_transformed": true,
+      "mean_after_transformation": 1.4046439337155692,
+      "standard_deviation_after_transformation": 0.5525462331531718,
+      "missing_value_count": 0
+    },
+    "ERBB2_tpm": {
+      "median_imputation_value": 162.6673,
+      "log1p_transformed": true,
+      "mean_after_transformation": 5.195390483135663,
+      "standard_deviation_after_transformation": 1.3657578152410044,
+      "missing_value_count": 0
+    },
+    "PIK3CA_tpm": {
+      "median_imputation_value": 6.9585,
+      "log1p_transformed": true,
+      "mean_after_transformation": 2.2255289131886853,
+      "standard_deviation_after_transformation": 0.7281634527455831,
+      "missing_value_count": 0
+    },
+    "PTEN_tpm": {
+      "median_imputation_value": 36.1679,
+      "log1p_transformed": true,
+      "mean_after_transformation": 3.4901540103426374,
+      "standard_deviation_after_transformation": 0.4387782997683957,
+      "missing_value_count": 0
+    },
+    "RB1_tpm": {
+      "median_imputation_value": 27.6591,
+      "log1p_transformed": true,
+      "mean_after_transformation": 3.234490401568893,
+      "standard_deviation_after_transformation": 0.6383353160683224,
+      "missing_value_count": 0
+    },
+    "ESR1_tpm": {
+      "median_imputation_value": 63.034,
+      "log1p_transformed": true,
+      "mean_after_transformation": 3.481201383389173,
+      "standard_deviation_after_transformation": 1.6584033030387753,
+      "missing_value_count": 0
+    },
+    "PGR_tpm": {
+      "median_imputation_value": 9.008,
+      "log1p_transformed": true,
+      "mean_after_transformation": 2.318781153451202,
+      "standard_deviation_after_transformation": 1.8165334545679535,
+      "missing_value_count": 0
+    },
+    "EGFR_tpm": {
+      "median_imputation_value": 9.1811,
+      "log1p_transformed": true,
+      "mean_after_transformation": 2.3419017580738966,
+      "standard_deviation_after_transformation": 0.8597749469724002,
+      "missing_value_count": 0
+    },
+    "CD274_tpm": {
+      "median_imputation_value": 2.3772,
+      "log1p_transformed": true,
+      "mean_after_transformation": 1.2809209822982417,
+      "standard_deviation_after_transformation": 0.5324607688976377,
+      "missing_value_count": 0
+    },
+    "MYC_tpm": {
+      "median_imputation_value": 50.4754,
+      "log1p_transformed": true,
+      "mean_after_transformation": 3.89157761160968,
+      "standard_deviation_after_transformation": 0.8869520409948776,
+      "missing_value_count": 0
+    }
+  },
+  "categorical_parameters": {
+    "missing_category_value": "__MISSING__",
+    "categories": {
+      "tumor_stage": [
+        "__MISSING__"
+      ],
+      "tumor_grade": [
+        "__MISSING__"
+      ],
+      "primary_diagnosis": [
+        "Adenocarcinoma, NOS",
+        "Adenoid cystic carcinoma",
+        "Infiltrating duct and lobular carcinoma",
+        "Infiltrating duct carcinoma, NOS",
+        "Infiltrating duct mixed with other types of carcinoma",
+        "Invasive micropapillary carcinoma",
+        "Large cell neuroendocrine carcinoma",
+        "Lobular carcinoma, NOS",
+        "Not Reported"
+      ]
+    }
+  },
+  "transformations": {
+    "numeric_missing_values": "median imputation",
+    "age_at_diagnosis_years": "median imputation followed by standardization",
+    "total_mutation_count": "median imputation, log1p transformation, and standardization",
+    "rna_tpm": "median imputation, log1p transformation, and standardization",
+    "categorical_clinical_features": "missing-category replacement and one-hot encoding",
+    "mutation_features": "preserved as binary 0/1 indicators"
+  },
+  "data_leakage_protection": {
+    "excluded_from_model_features": [
+      "vital_status",
+      "days_to_death",
+      "days_to_last_follow_up"
+    ],
+    "reason": "Survival and follow-up variables are retained for later outcome construction but are not included as predictors."
+  },
+  "research_use_only": true
+}

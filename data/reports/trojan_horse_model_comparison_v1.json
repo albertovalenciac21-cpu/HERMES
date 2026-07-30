@@ -1,0 +1,229 @@
+{
+  "project": "TCGA-BRCA",
+  "training_status": "complete",
+  "framework_name": "Trojan Horse model comparison v1",
+  "source_dataset_path": "data\\processed\\tcga_brca_cohort_100_patients_ml_ready.csv",
+  "best_model_path": "data\\models\\trojan_horse_best_model_v1.joblib",
+  "selection_rule": "Highest balanced accuracy; ties resolved by ROC-AUC and then F1 score.",
+  "dataset_summary": {
+    "source_patient_count": 100,
+    "training_patient_count": 100,
+    "excluded_patient_count": 0,
+    "alive_count": 89,
+    "dead_count": 11,
+    "feature_count": 39
+  },
+  "cross_validation": {
+    "method": "StratifiedKFold",
+    "number_of_folds": 5,
+    "shuffle": true,
+    "random_state": 42,
+    "decision_threshold": 0.5
+  },
+  "models_compared": [
+    {
+      "model_name": "logistic_regression",
+      "model_type": "LogisticRegression",
+      "metrics": {
+        "accuracy": 0.79,
+        "balanced_accuracy": 0.6032,
+        "sensitivity_recall": 0.3636,
+        "specificity": 0.8427,
+        "precision": 0.2222,
+        "f1_score": 0.2759,
+        "roc_auc": 0.6333
+      },
+      "confusion_matrix": [
+        [
+          75,
+          14
+        ],
+        [
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "model_name": "random_forest",
+      "model_type": "RandomForestClassifier",
+      "metrics": {
+        "accuracy": 0.88,
+        "balanced_accuracy": 0.4944,
+        "sensitivity_recall": 0.0,
+        "specificity": 0.9888,
+        "precision": 0.0,
+        "f1_score": 0.0,
+        "roc_auc": 0.5281
+      },
+      "confusion_matrix": [
+        [
+          88,
+          1
+        ],
+        [
+          11,
+          0
+        ]
+      ]
+    },
+    {
+      "model_name": "gradient_boosting",
+      "model_type": "GradientBoostingClassifier",
+      "metrics": {
+        "accuracy": 0.85,
+        "balanced_accuracy": 0.4775,
+        "sensitivity_recall": 0.0,
+        "specificity": 0.9551,
+        "precision": 0.0,
+        "f1_score": 0.0,
+        "roc_auc": 0.3391
+      },
+      "confusion_matrix": [
+        [
+          85,
+          4
+        ],
+        [
+          11,
+          0
+        ]
+      ]
+    }
+  ],
+  "best_model": {
+    "model_name": "logistic_regression",
+    "model_type": "LogisticRegression",
+    "metrics": {
+      "accuracy": 0.79,
+      "balanced_accuracy": 0.6032,
+      "sensitivity_recall": 0.3636,
+      "specificity": 0.8427,
+      "precision": 0.2222,
+      "f1_score": 0.2759,
+      "roc_auc": 0.6333
+    },
+    "confusion_matrix": [
+      [
+        75,
+        14
+      ],
+      [
+        7,
+        4
+      ]
+    ]
+  },
+  "best_model_top_feature_importance": [
+    {
+      "feature": "PGR_tpm__scaled",
+      "coefficient": -1.325616,
+      "absolute_importance": 1.325616
+    },
+    {
+      "feature": "TP53_mutated",
+      "coefficient": 1.195428,
+      "absolute_importance": 1.195428
+    },
+    {
+      "feature": "ERBB2_tpm__scaled",
+      "coefficient": -1.120115,
+      "absolute_importance": 1.120115
+    },
+    {
+      "feature": "total_mutation_count__scaled",
+      "coefficient": -1.091825,
+      "absolute_importance": 1.091825
+    },
+    {
+      "feature": "PIK3CA_mutated",
+      "coefficient": 1.070415,
+      "absolute_importance": 1.070415
+    },
+    {
+      "feature": "PTEN_mutated",
+      "coefficient": 0.991983,
+      "absolute_importance": 0.991983
+    },
+    {
+      "feature": "ESR1_tpm__scaled",
+      "coefficient": 0.854568,
+      "absolute_importance": 0.854568
+    },
+    {
+      "feature": "BRCA2_tpm__scaled",
+      "coefficient": -0.828547,
+      "absolute_importance": 0.828547
+    },
+    {
+      "feature": "tumor_stage__missing",
+      "coefficient": -0.701808,
+      "absolute_importance": 0.701808
+    },
+    {
+      "feature": "tumor_grade__missing",
+      "coefficient": -0.701808,
+      "absolute_importance": 0.701808
+    },
+    {
+      "feature": "PIK3CA_tpm__scaled",
+      "coefficient": 0.591614,
+      "absolute_importance": 0.591614
+    },
+    {
+      "feature": "TP53_tpm__scaled",
+      "coefficient": 0.552219,
+      "absolute_importance": 0.552219
+    },
+    {
+      "feature": "BRCA1_tpm__scaled",
+      "coefficient": 0.449204,
+      "absolute_importance": 0.449204
+    },
+    {
+      "feature": "primary_diagnosis__infiltrating_duct_and_lobular_carcinoma",
+      "coefficient": -0.424576,
+      "absolute_importance": 0.424576
+    },
+    {
+      "feature": "primary_diagnosis__large_cell_neuroendocrine_carcinoma",
+      "coefficient": 0.412066,
+      "absolute_importance": 0.412066
+    },
+    {
+      "feature": "PTEN_tpm__scaled",
+      "coefficient": -0.361861,
+      "absolute_importance": 0.361861
+    },
+    {
+      "feature": "RB1_mutated",
+      "coefficient": -0.334622,
+      "absolute_importance": 0.334622
+    },
+    {
+      "feature": "EGFR_tpm__scaled",
+      "coefficient": -0.302464,
+      "absolute_importance": 0.302464
+    },
+    {
+      "feature": "RB1_tpm__scaled",
+      "coefficient": -0.266461,
+      "absolute_importance": 0.266461
+    },
+    {
+      "feature": "primary_diagnosis__not_reported",
+      "coefficient": -0.232643,
+      "absolute_importance": 0.232643
+    }
+  ],
+  "excluded_patients": [],
+  "limitations": [
+    "Vital status is a preliminary binary endpoint that does not account for follow-up time.",
+    "The cohort is imbalanced, with fewer deceased than living patients.",
+    "Model selection and evaluation use the same cohort and therefore require later validation on an independent holdout or external cohort.",
+    "The saved model is for research and technical development only, not clinical care."
+  ],
+  "recommended_next_step": "Add nested tuning or a locked holdout set, then build the prediction endpoint around the saved model package.",
+  "research_use_only": true,
+  "clinically_validated": false
+}

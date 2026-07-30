@@ -1,0 +1,190 @@
+from fastapi import APIRouter, HTTPException, Query
+
+from backend.app.services.cohort import (
+    CohortDiscoveryError,
+    discover_tcga_brca_cohort,
+)
+from backend.app.services.cohort_builder import (
+    DEFAULT_GENES,
+    CohortBuildError,
+    build_tcga_brca_pilot_cohort,
+)
+from backend.app.services.dataset_validator import (
+    DatasetValidationError,
+    validate_tcga_brca_dataset,
+)
+
+
+router = APIRouter(
+    prefix="/cohort",
+    tags=["Cohort Builder"],
+)
+
+
+@router.get("/tcga-brca/discover")
+def discover_breast_cancer_cohort(
+    limit: int = Query(
+        default=10,
+        ge=1,
+        le=500,
+        description=(
+            "Maximum number of eligible patients to return."
+        ),
+    ),
+    require_rna: bool = Query(
+        default=True,
+        description=(
+            "Only include patients with RNA-expression data."
+        ),
+    ),
+    require_mutations: bool = Query(
+        default=True,
+        description=(
+            "Only include patients with somatic-mutation data."
+        ),
+    ),
+):
+    """
+    Discover TCGA-BRCA patients without downloading files.
+    """
+
+    try:
+        return discover_tcga_brca_cohort(
+            limit=limit,
+            require_rna=require_rna,
+            require_mutations=require_mutations,
+        )
+
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=400,
+            detail=str(exc),
+        ) from exc
+
+    except CohortDiscoveryError as exc:
+        raise HTTPException(
+            status_code=502,
+            detail=str(exc),
+        ) from exc
+
+    except Exception as exc:
+        raise HTTPException(
+            status_code=500,
+            detail=(
+                "Unexpected cohort-discovery error: "
+                f"{exc}"
+            ),
+        ) from exc
+
+
+@router.post("/tcga-brca/build-pilot")
+def build_pilot_cohort(
+    limit: int = Query(
+        default=5,
+        ge=1,
+        le=25,
+        description=(
+            "Number of eligible patients to process."
+        ),
+    ),
+    genes: str = Query(
+        default=",".join(DEFAULT_GENES),
+        description=(
+            "Comma-separated genes to extract from RNA and "
+            "mutation files."
+        ),
+    ),
+):
+    """
+    Download and process a small machine-learning cohort.
+    """
+
+    gene_list = [
+        gene.strip()
+        for gene in genes.split(",")
+        if gene.strip()
+    ]
+
+    try:
+        return build_tcga_brca_pilot_cohort(
+            limit=limit,
+            genes=gene_list,
+        )
+
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=400,
+            detail=str(exc),
+        ) from exc
+
+    except (
+        CohortBuildError,
+        CohortDiscoveryError,
+    ) as exc:
+        raise HTTPException(
+            status_code=502,
+            detail=str(exc),
+        ) from exc
+
+    except Exception as exc:
+        raise HTTPException(
+            status_code=500,
+            detail=(
+                "Unexpected cohort-build error: "
+                f"{exc}"
+            ),
+        ) from exc
+
+
+@router.get("/tcga-brca/validate-pilot")
+def validate_pilot_cohort(
+    dataset_path: str | None = Query(
+        default=None,
+        description=(
+            "Optional path to a cohort CSV. When omitted, "
+            "the five-patient pilot dataset is validated."
+        ),
+    ),
+    genes: str = Query(
+        default=",".join(DEFAULT_GENES),
+        description=(
+            "Comma-separated genes expected in the dataset."
+        ),
+    ),
+):
+    """
+    Validate the pilot cohort before scaling.
+    """
+
+    gene_list = [
+        gene.strip()
+        for gene in genes.split(",")
+        if gene.strip()
+    ]
+
+    try:
+        return validate_tcga_brca_dataset(
+            dataset_path=dataset_path,
+            genes=gene_list,
+        )
+
+    except DatasetValidationError as exc:
+        raise HTTPException(
+            status_code=404,
+            detail=str(exc),
+        ) from exc
+
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=400,
+            detail=str(exc),
+        ) from exc
+
+    except Exception as exc:
+        raise HTTPException(
+            status_code=500,
+            detail=(
+                "Unexpected dataset-validation error: "
+                f"{exc}"
+            ),
+        ) from exc
