@@ -12,20 +12,53 @@ from backend.app.ai.model_paths import (
     training_model_path,
     training_report_path,
 )
-from backend.app.ai.optimizer import AIOptimizationError, optimize_ai_models
-from backend.app.ai.predictor import AIPredictionError, predict_existing_patient, predict_from_features
-from backend.app.ai.registry import ModelRegistryError, list_registered_models, list_training_reports
-from backend.app.ai.report_generator import AIReportError, generate_prediction_pdf
-from backend.app.ai.trainer import AITrainingError, train_ai_models
+from backend.app.ai.optimizer import (
+    AIOptimizationError,
+    optimize_ai_models,
+)
+from backend.app.ai.predictor import (
+    AIPredictionError,
+    predict_existing_patient,
+    predict_from_features,
+)
+from backend.app.ai.registry import (
+    ModelRegistryError,
+    list_registered_models,
+    list_training_reports,
+)
+from backend.app.ai.report_generator import (
+    AIReportError,
+    generate_prediction_pdf,
+)
+from backend.app.ai.trainer import (
+    AITrainingError,
+    train_ai_models,
+)
 
-router = APIRouter(prefix="/ai", tags=["Trojan Horse AI"])
+
+router = APIRouter(
+    prefix="/ai",
+    tags=["HERMES AI"],
+)
 
 
 @router.post("/train")
-def train_trojan_horse_ai(
-    dataset_path: str = Query(...),
-    model_name: str = Query("tnbc", description="Model namespace, for example brca or tnbc."),
-    random_state: int = Query(42, ge=0),
+def train_hermes_ai(
+    dataset_path: str = Query(
+        ...,
+        description="Path to the machine learning-ready dataset.",
+    ),
+    model_name: str = Query(
+        "tnbc",
+        description=(
+            "Model namespace, such as 'brca' or 'tnbc'."
+        ),
+    ),
+    random_state: int = Query(
+        42,
+        ge=0,
+        description="Random seed used for reproducible model training.",
+    ),
 ):
     try:
         return train_ai_models(
@@ -36,14 +69,29 @@ def train_trojan_horse_ai(
             model_name=model_name,
         )
     except (AITrainingError, ModelPathError) as exc:
-        raise HTTPException(status_code=400, detail=str(exc)) from exc
+        raise HTTPException(
+            status_code=400,
+            detail=str(exc),
+        ) from exc
 
 
 @router.post("/optimize")
-def optimize_trojan_horse_ai(
-    dataset_path: str = Query(...),
-    model_name: str = Query("tnbc"),
-    random_state: int = Query(42, ge=0),
+def optimize_hermes_ai(
+    dataset_path: str = Query(
+        ...,
+        description="Path to the machine learning-ready dataset.",
+    ),
+    model_name: str = Query(
+        "tnbc",
+        description=(
+            "Model namespace, such as 'brca' or 'tnbc'."
+        ),
+    ),
+    random_state: int = Query(
+        42,
+        ge=0,
+        description="Random seed used for reproducible optimization.",
+    ),
 ):
     try:
         return optimize_ai_models(
@@ -54,15 +102,40 @@ def optimize_trojan_horse_ai(
             model_name=model_name,
         )
     except (AIOptimizationError, ModelPathError) as exc:
-        raise HTTPException(status_code=400, detail=str(exc)) from exc
+        raise HTTPException(
+            status_code=400,
+            detail=str(exc),
+        ) from exc
 
 
 @router.post("/predict")
-def predict_with_trojan_horse_ai(
-    features: dict[str, Any] = Body(...),
-    model_name: str = Query("tnbc"),
-    top_feature_count: int = Query(10, ge=1, le=100),
-    include_shap: bool = Query(True),
+def predict_with_hermes_ai(
+    features: dict[str, Any] = Body(
+        ...,
+        description=(
+            "Patient-level molecular feature values used for prediction."
+        ),
+    ),
+    model_name: str = Query(
+        "tnbc",
+        description=(
+            "Model namespace, such as 'brca' or 'tnbc'."
+        ),
+    ),
+    top_feature_count: int = Query(
+        10,
+        ge=1,
+        le=100,
+        description=(
+            "Maximum number of influential features to return."
+        ),
+    ),
+    include_shap: bool = Query(
+        True,
+        description=(
+            "Include SHAP-based feature explanations when available."
+        ),
+    ),
 ):
     try:
         return predict_from_features(
@@ -73,16 +146,46 @@ def predict_with_trojan_horse_ai(
             include_shap=include_shap,
         )
     except (AIPredictionError, ModelPathError) as exc:
-        raise HTTPException(status_code=400, detail=str(exc)) from exc
+        raise HTTPException(
+            status_code=400,
+            detail=str(exc),
+        ) from exc
 
 
 @router.post("/predict-existing-patient")
 def predict_existing_dataset_patient(
-    patient_id: str = Query(..., min_length=1),
-    model_name: str = Query("tnbc"),
-    dataset_path: str | None = Query(None, description="Optional override; defaults to the model package's source dataset."),
-    top_feature_count: int = Query(10, ge=1, le=100),
-    include_shap: bool = Query(True),
+    patient_id: str = Query(
+        ...,
+        min_length=1,
+        description="Patient identifier present in the source dataset.",
+    ),
+    model_name: str = Query(
+        "tnbc",
+        description=(
+            "Model namespace, such as 'brca' or 'tnbc'."
+        ),
+    ),
+    dataset_path: str | None = Query(
+        None,
+        description=(
+            "Optional dataset override. When omitted, HERMES uses the "
+            "source dataset recorded in the model package."
+        ),
+    ),
+    top_feature_count: int = Query(
+        10,
+        ge=1,
+        le=100,
+        description=(
+            "Maximum number of influential features to return."
+        ),
+    ),
+    include_shap: bool = Query(
+        True,
+        description=(
+            "Include SHAP-based feature explanations when available."
+        ),
+    ),
 ):
     try:
         return predict_existing_patient(
@@ -94,16 +197,43 @@ def predict_existing_dataset_patient(
             include_shap=include_shap,
         )
     except (AIPredictionError, ModelPathError) as exc:
-        raise HTTPException(status_code=400, detail=str(exc)) from exc
+        raise HTTPException(
+            status_code=400,
+            detail=str(exc),
+        ) from exc
 
 
 @router.post("/report-existing-patient")
 def create_existing_patient_report(
-    patient_id: str = Query(..., min_length=1),
-    model_name: str = Query("tnbc"),
-    dataset_path: str | None = Query(None),
-    top_feature_count: int = Query(10, ge=1, le=100),
-    output_path: str | None = Query(None),
+    patient_id: str = Query(
+        ...,
+        min_length=1,
+        description="Patient identifier present in the source dataset.",
+    ),
+    model_name: str = Query(
+        "tnbc",
+        description=(
+            "Model namespace, such as 'brca' or 'tnbc'."
+        ),
+    ),
+    dataset_path: str | None = Query(
+        None,
+        description="Optional dataset path override.",
+    ),
+    top_feature_count: int = Query(
+        10,
+        ge=1,
+        le=100,
+        description=(
+            "Maximum number of influential features included in the report."
+        ),
+    ),
+    output_path: str | None = Query(
+        None,
+        description=(
+            "Optional output path for the generated PDF report."
+        ),
+    ),
 ):
     try:
         prediction = predict_existing_patient(
@@ -114,16 +244,34 @@ def create_existing_patient_report(
             top_feature_count=top_feature_count,
             include_shap=True,
         )
-        report = generate_prediction_pdf(prediction=prediction, output_path=output_path)
+
+        report = generate_prediction_pdf(
+            prediction=prediction,
+            output_path=output_path,
+        )
+
         resolved_path = Path(report["report_path"])
+
         return FileResponse(
             path=str(resolved_path),
             media_type="application/pdf",
             filename=resolved_path.name,
-            headers={"X-Research-Use-Only": "true", "X-Patient-ID": patient_id, "X-Model-Name": model_name},
+            headers={
+                "X-Research-Use-Only": "true",
+                "X-Patient-ID": patient_id,
+                "X-Model-Name": model_name,
+                "X-Platform": "Project HERMES",
+            },
         )
-    except (AIPredictionError, AIReportError, ModelPathError) as exc:
-        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except (
+        AIPredictionError,
+        AIReportError,
+        ModelPathError,
+    ) as exc:
+        raise HTTPException(
+            status_code=400,
+            detail=str(exc),
+        ) from exc
 
 
 @router.get("/models")
@@ -131,7 +279,10 @@ def get_registered_models():
     try:
         return list_registered_models()
     except ModelRegistryError as exc:
-        raise HTTPException(status_code=500, detail=str(exc)) from exc
+        raise HTTPException(
+            status_code=500,
+            detail=str(exc),
+        ) from exc
 
 
 @router.get("/performance")
@@ -139,4 +290,7 @@ def get_training_performance():
     try:
         return list_training_reports()
     except ModelRegistryError as exc:
-        raise HTTPException(status_code=500, detail=str(exc)) from exc
+        raise HTTPException(
+            status_code=500,
+            detail=str(exc),
+        ) from exc

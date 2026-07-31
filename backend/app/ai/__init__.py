@@ -1,1 +1,1 @@
-"""Artificial-intelligence services for Project Trojan Horse."""
+"""Artificial-intelligence services for Project HERMES."""

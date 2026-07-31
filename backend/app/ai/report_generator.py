@@ -340,7 +340,7 @@ def _draw_page_footer(
         0.65 * inch,
         0.42 * inch,
         (
-            "Project Trojan Horse - "
+            "Project HERMES - "
             "Research Use Only"
         ),
     )
@@ -486,10 +486,10 @@ def generate_prediction_pdf(
         topMargin=0.6 * inch,
         bottomMargin=0.7 * inch,
         title=(
-            "Project Trojan Horse "
+            "Project HERMES "
             "AI Prediction Report"
         ),
-        author="Project Trojan Horse",
+        author="Project HERMES",
     )
 
     probabilities = prediction.get(
@@ -517,7 +517,7 @@ def generate_prediction_pdf(
 
     story: list[Any] = [
         Paragraph(
-            "Project Trojan Horse",
+            "Project HERMES",
             styles["ReportTitle"],
         ),
         Paragraph(

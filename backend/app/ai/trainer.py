@@ -38,7 +38,7 @@ def train_ai_models(
     model_name: str = "brca",
 ) -> dict[str, Any]:
     """
-    Train, compare, rank, and save Project Trojan Horse models.
+    Train, compare, rank, and save Project HERMES models.
 
     The underlying training service evaluates logistic regression,
     random forest, and gradient boosting with identical stratified
@@ -64,7 +64,7 @@ def train_ai_models(
 
     return {
         "ai_training_status": "complete",
-        "platform": "Project Trojan Horse",
+        "platform": "Project HERMES",
         "model_namespace": namespace,
         "task": "TCGA-BRCA vital-status classification",
         **result,

@@ -716,7 +716,7 @@ def preprocess_cohort_dataset(
     )
 
     metadata = {
-        "project": "Project Trojan Horse",
+        "project": "Project HERMES",
         "cohort_name": source_path.stem,
         "preprocessing_version": "1.0",
         "source_dataset_path": str(source_path),

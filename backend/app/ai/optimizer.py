@@ -529,7 +529,7 @@ def optimize_ai_models(
         )
 
         report = {
-            "project": "Project Trojan Horse",
+            "project": "Project HERMES",
             "model_namespace": namespace,
             "task": (
                 "TCGA-BRCA vital-status "
@@ -631,7 +631,7 @@ def optimize_ai_models(
                 "complete"
             ),
             "platform": (
-                "Project Trojan Horse"
+                "Project HERMES"
             ),
             "models_optimized": [
                 result["model_name"]

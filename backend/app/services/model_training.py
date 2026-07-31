@@ -699,7 +699,7 @@ def train_tcga_brca_model_comparison(
     report = {
         "project": "TCGA-BRCA",
         "training_status": "complete",
-        "framework_name": "Trojan Horse model comparison v1",
+        "framework_name": "HERMES model comparison v1",
         "source_dataset_path": str(source_path),
         "best_model_path": str(resolved_model_path),
         "selection_rule": (

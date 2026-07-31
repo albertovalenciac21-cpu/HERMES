@@ -14,12 +14,15 @@ from backend.app.api import (
 
 
 app = FastAPI(
-    title="Project Trojan Horse",
+    title="Project HERMES",
     description=(
-        "AI-assisted precision oncology platform "
-        "for Triple-Negative Breast Cancer"
+        "HERMES — High-throughput Engine for Research in Multi-omic "
+        "Evaluation and Stratification. An AI-assisted precision oncology "
+        "platform for automated molecular cohort construction, multi-omic "
+        "data integration, machine learning, explainability, and "
+        "research-oriented prediction in triple-negative breast cancer."
     ),
-    version="0.6.0",
+    version="1.1.0",
 )
 
 
