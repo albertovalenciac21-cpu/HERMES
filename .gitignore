@@ -22,3 +22,14 @@ data/downloads/
 .DS_Store
 Thumbs.db
 .git-backup/
+
+# HERMES 2.0 external datasets
+data/hermes2/cohorts/neotrip/*.gz
+data/hermes2/cohorts/neotrip/authors_code/
+data/hermes2/cohorts/neotrip/GSE319641_metadata.txt
+data/hermes2/cohorts/neotrip/GSE319641_full_metadata.txt
+data/hermes2/cohorts/neotrip/GSM*.txt
+data/hermes2/cohorts/neotrip/supplementary_listing.html
+
+# Future HERMES 2.0 raw cohort downloads
+data/hermes2/raw/*
