@@ -33,3 +33,5 @@ data/hermes2/cohorts/neotrip/supplementary_listing.html
 
 # Future HERMES 2.0 raw cohort downloads
 data/hermes2/raw/*
+
+data/hermes2/gene_sets/
