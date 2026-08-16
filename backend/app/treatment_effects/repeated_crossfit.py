@@ -107,6 +107,10 @@ def generate_random_states(
 
     The same base_random_state and n_repeats always produce
     the same sequence.
+
+    Seeds are generated directly from NumPy's integer RNG instead of
+    constructing an array containing the entire 32-bit seed space.
+    This keeps memory usage proportional to n_repeats.
     """
 
     if n_repeats < 2:
@@ -114,23 +118,41 @@ def generate_random_states(
             "n_repeats must be at least 2."
         )
 
+    if base_random_state < 0:
+        raise ValueError(
+            "base_random_state must be non-negative."
+        )
+
     rng = np.random.default_rng(
         base_random_state
     )
 
-    states = rng.choice(
-        np.arange(
-            1,
-            2_147_483_647,
-            dtype=np.int64,
-        ),
-        size=n_repeats,
-        replace=False,
-    )
+    states: list[int] = []
+    seen: set[int] = set()
+
+    while len(states) < n_repeats:
+
+        candidate = int(
+            rng.integers(
+                low=1,
+                high=2_147_483_647,
+                endpoint=False,
+            )
+        )
+
+        if candidate in seen:
+            continue
+
+        seen.add(
+            candidate
+        )
+
+        states.append(
+            candidate
+        )
 
     return tuple(
-        int(value)
-        for value in states
+        states
     )
 
 
