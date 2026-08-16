@@ -882,14 +882,9 @@ def run_modifier_robustness(
         base_random_state
     )
 
-    perturbation_seeds = rng.choice(
-        np.arange(
-            1,
-            2_147_483_647,
-            dtype=np.int64,
-        ),
-        size=n_perturbations,
-        replace=False,
+    perturbation_seeds = generate_random_states(
+        n_perturbations,
+        base_random_state=base_random_state,
     )
 
     coefficient_columns: dict[

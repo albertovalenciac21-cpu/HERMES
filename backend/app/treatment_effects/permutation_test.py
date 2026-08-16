@@ -58,6 +58,7 @@ import pandas as pd
 
 from backend.app.treatment_effects.repeated_crossfit import (
     RepeatedCrossFitResult,
+    generate_random_states,
     repeated_crossfit_treatment_effect_model,
 )
 
@@ -493,16 +494,9 @@ def run_permutation_test(
         base_random_state
     )
 
-    permutation_seeds = (
-        rng.choice(
-            np.arange(
-                1,
-                2_147_483_647,
-                dtype=np.int64,
-            ),
-            size=n_permutations,
-            replace=False,
-        )
+    permutation_seeds = generate_random_states(
+        n_permutations,
+        base_random_state=base_random_state,
     )
 
     records: list[
