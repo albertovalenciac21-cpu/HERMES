@@ -35,3 +35,5 @@ data/hermes2/cohorts/neotrip/supplementary_listing.html
 data/hermes2/raw/*
 
 data/hermes2/gene_sets/
+
+outputs/
