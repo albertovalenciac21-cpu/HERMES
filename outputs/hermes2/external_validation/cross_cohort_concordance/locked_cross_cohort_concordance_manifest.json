@@ -1,0 +1,18 @@
+{
+  "all_locked_pathways_reported": true,
+  "analysis": "NeoTRIP_vs_ISPY2_locked_pathway_concordance",
+  "clinical_claims_allowed": false,
+  "direct_raw_scale_coefficient_transport_claimed": false,
+  "external_validation_plan_sha256": "8e2aa1891cf2070551bd7da82870a229b44a6708569757b458d40297aa2e88db",
+  "locked_pathway_count": 7,
+  "locked_pathways": [
+    "HALLMARK_COAGULATION",
+    "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+    "HALLMARK_ANGIOGENESIS",
+    "HALLMARK_MYOGENESIS",
+    "HALLMARK_APICAL_JUNCTION",
+    "HALLMARK_TGF_BETA_SIGNALING",
+    "HALLMARK_KRAS_SIGNALING_UP"
+  ],
+  "posthoc_pathway_selection_used": false
+}

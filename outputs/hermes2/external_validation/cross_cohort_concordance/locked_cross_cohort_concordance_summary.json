@@ -1,0 +1,19 @@
+{
+  "analysis": "NeoTRIP_vs_ISPY2_locked_pathway_concordance",
+  "clinical_claims_allowed": false,
+  "cross_cohort_sign_concordance_exact_one_sided_p_value": 0.2265625,
+  "cross_cohort_sign_concordant_count": 5,
+  "cross_cohort_sign_concordant_fraction": 0.7142857142857143,
+  "direct_raw_scale_coefficient_transport_claimed": false,
+  "external_validation_plan_sha256": "8e2aa1891cf2070551bd7da82870a229b44a6708569757b458d40297aa2e88db",
+  "interpretation_guardrail": "Cross-cohort concordance is descriptive biological replication across different ICI agents/platforms; absence of significance does not prove absence of heterogeneity, and concordance does not establish a validated predictive biomarker.",
+  "ispy2_locked_negative_direction_count": 5,
+  "ispy2_locked_negative_direction_fraction": 0.7142857142857143,
+  "locked_pathways": 7,
+  "mean_absolute_cross_cohort_coefficient_difference": 0.34076558433709503,
+  "pearson_correlation_p_value": 0.429238335966852,
+  "pearson_interaction_coefficient_correlation": -0.3588599767288056,
+  "posthoc_pathway_selection_used": false,
+  "spearman_correlation_p_value": 0.431611352038328,
+  "spearman_interaction_coefficient_correlation": -0.3571428571428572
+}
