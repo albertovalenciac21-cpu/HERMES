@@ -1,0 +1,23 @@
+{
+  "all_models_converged": true,
+  "clinical_claims_allowed": false,
+  "cohort": "I-SPY2 GSE194040 TNBC pembrolizumab/control",
+  "control_patients": 85,
+  "control_pcr_rate": 0.2,
+  "direct_neotrip_raw_scale_transport_used": false,
+  "direction_concordant_count": 5,
+  "direction_concordant_fraction": 0.7142857142857143,
+  "expected_direction": "interaction_coefficient < 0; greater benefit with lower pathway activity",
+  "external_validation_plan_sha256": "8e2aa1891cf2070551bd7da82870a229b44a6708569757b458d40297aa2e88db",
+  "fdr_interaction_count": 0,
+  "fdr_threshold": 0.1,
+  "locked_hypotheses_analyzed": 7,
+  "locked_hypotheses_requested": 7,
+  "multiple_testing_family": "exactly seven pathways locked before external outcome analysis",
+  "nominal_interaction_count": 0,
+  "observed_absolute_pcr_difference": 0.4551724137931034,
+  "patients": 114,
+  "pembrolizumab_patients": 29,
+  "pembrolizumab_pcr_rate": 0.6551724137931034,
+  "posthoc_pathway_selection_used": false
+}
